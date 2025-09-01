@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../components/typography_demo.dart';
+import '../components/color_system_demo.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -38,8 +39,11 @@ class SettingsScreen extends StatelessWidget {
                 title: 'Color System',
                 subtitle: 'Color palette and themes',
                 onTap: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Color System - Coming soon')),
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ColorSystemDemo(),
+                    ),
                   );
                 },
               ),

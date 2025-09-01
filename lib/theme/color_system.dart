@@ -1,101 +1,122 @@
 import 'package:flutter/material.dart';
 
+// Figma Design System - Primary Blue from Tonal Palettes
+const Color _primarySeedColor = Color(0xFF3F6FEC); // Primary 50 from Figma
+
+// Custom color extensions from Figma design system
+class FigmaColors {
+  // Primary palette from Figma
+  static const Color primary0 = Color(0xFF000D35);
+  static const Color primary10 = Color(0xFF00174C);
+  static const Color primary20 = Color(0xFF002979);
+  static const Color primary30 = Color(0xFF003DA9);
+  static const Color primary40 = Color(0xFF1B54D1);
+  static const Color primary50 = Color(0xFF3F6FEC);
+  static const Color primary60 = Color(0xFF628AFF);
+  static const Color primary70 = Color(0xFF8CA8FF);
+  static const Color primary80 = Color(0xFFB4C5FF);
+  static const Color primary90 = Color(0xFFDBE1FF);
+  static const Color primary95 = Color(0xFFEFF0FF);
+  static const Color primary99 = Color(0xFFFEFBFF);
+  static const Color primary100 = Color(0xFFFFFFFF);
+
+  // Secondary palette from Figma
+  static const Color secondary0 = Color(0xFF000000);
+  static const Color secondary10 = Color(0xFF002020);
+  static const Color secondary20 = Color(0xFF0A3636);
+  static const Color secondary30 = Color(0xFF254D4C);
+  static const Color secondary40 = Color(0xFF3E6564);
+  static const Color secondary50 = Color(0xFF577E7D);
+  static const Color secondary60 = Color(0xFF709897);
+  static const Color secondary70 = Color(0xFF8AB3B2);
+  static const Color secondary80 = Color(0xFFA5CECD);
+  static const Color secondary90 = Color(0xFFC1EBE9);
+  static const Color secondary95 = Color(0xFFCFF9F7);
+  static const Color secondary100 = Color(0xFFFFFFFF);
+
+  // Error palette from Figma
+  static const Color error0 = Color(0xFF000000);
+  static const Color error10 = Color(0xFF410004);
+  static const Color error20 = Color(0xFF65090E);
+  static const Color error30 = Color(0xFF93000A);
+  static const Color error40 = Color(0xFFBA1A1A);
+  static const Color error50 = Color(0xFFDE3730);
+  static const Color error60 = Color(0xFFFF5449);
+  static const Color error70 = Color(0xFFFF897D);
+  static const Color error80 = Color(0xFFFFB4AB);
+  static const Color error90 = Color(0xFFFFDAD6);
+  static const Color error95 = Color(0xFFFFEDEA);
+  static const Color error99 = Color(0xFFFFFBFF);
+  static const Color error100 = Color(0xFFFFFFFF);
+
+  // Neutral palette from Figma
+  static const Color neutral0 = Color(0xFF000000);
+  static const Color neutral10 = Color(0xFF1C1B1C);
+  static const Color neutral20 = Color(0xFF313030);
+  static const Color neutral30 = Color(0xFF484646);
+  static const Color neutral40 = Color(0xFF605E5E);
+  static const Color neutral50 = Color(0xFF797676);
+  static const Color neutral60 = Color(0xFF939090);
+  static const Color neutral70 = Color(0xFFADAAAA);
+  static const Color neutral80 = Color(0xFFC9C6C5);
+  static const Color neutral90 = Color(0xFFE5E1E1);
+  static const Color neutral95 = Color(0xFFF4F0EF);
+  static const Color neutral99 = Color(0xFFFFFBFF);
+  static const Color neutral100 = Color(0xFFFFFFFF);
+}
+
 final lightColorScheme = ColorScheme.fromSeed(
-  seedColor: const Color(0xFF6750A4),
+  seedColor: _primarySeedColor,
   brightness: Brightness.light,
-  primary: const Color(0xFF6750A4),
+).copyWith(
+  // Override with specific Figma design system colors
+  primary: FigmaColors.primary40,
   onPrimary: const Color(0xFFFFFFFF),
-  primaryContainer: const Color(0xFFEADDFF),
-  onPrimaryContainer: const Color(0xFF21005D),
-  secondary: const Color(0xFF625B71),
+  primaryContainer: FigmaColors.primary90,
+  onPrimaryContainer: FigmaColors.primary10,
+  
+  secondary: FigmaColors.secondary40,
   onSecondary: const Color(0xFFFFFFFF),
-  secondaryContainer: const Color(0xFFE8DEF8),
-  onSecondaryContainer: const Color(0xFF1D192B),
-  tertiary: const Color(0xFF7D5260),
-  onTertiary: const Color(0xFFFFFFFF),
-  tertiaryContainer: const Color(0xFFFFD8E4),
-  onTertiaryContainer: const Color(0xFF31111D),
-  error: const Color(0xFFBA1A1A),
+  secondaryContainer: FigmaColors.secondary90,
+  onSecondaryContainer: FigmaColors.secondary10,
+  
+  error: FigmaColors.error40,
   onError: const Color(0xFFFFFFFF),
-  errorContainer: const Color(0xFFFFDAD6),
-  onErrorContainer: const Color(0xFF410002),
-  primaryFixed: const Color(0xFFEADDFF),
-  primaryFixedDim: const Color(0xFFD0BCFF),
-  onPrimaryFixed: const Color(0xFF21005D),
-  onPrimaryFixedVariant: const Color(0xFF4F378B),
-  secondaryFixed: const Color(0xFFE8DEF8),
-  secondaryFixedDim: const Color(0xFFCCC2DC),
-  onSecondaryFixed: const Color(0xFF1D192B),
-  onSecondaryFixedVariant: const Color(0xFF4A4458),
-  tertiaryFixed: const Color(0xFFFFD8E4),
-  tertiaryFixedDim: const Color(0xFFEFB8C8),
-  onTertiaryFixed: const Color(0xFF31111D),
-  onTertiaryFixedVariant: const Color(0xFF633B48),
-  surfaceDim: const Color(0xFFDED8E1),
+  errorContainer: FigmaColors.error90,
+  onErrorContainer: FigmaColors.error10,
+  
   surface: const Color(0xFFFEF7FF),
-  surfaceBright: const Color(0xFFFEF7FF),
-  surfaceContainerLowest: const Color(0xFFFFFFFF),
-  surfaceContainerLow: const Color(0xFFF7F2FA),
-  surfaceContainer: const Color(0xFFF3EDF7),
-  surfaceContainerHigh: const Color(0xFFECE6F0),
-  surfaceContainerHighest: const Color(0xFFE6E0E9),
-  onSurface: const Color(0xFF1C1B1F),
-  onSurfaceVariant: const Color(0xFF49454F),
-  outline: const Color(0xFF79747E),
-  outlineVariant: const Color(0xFFCAC4D0),
-  shadow: const Color(0xFF000000),
-  scrim: const Color(0xFF000000),
-  inverseSurface: const Color(0xFF313033),
-  onInverseSurface: const Color(0xFFF4EFF4),
-  inversePrimary: const Color(0xFFD0BCFF),
+  onSurface: const Color(0xFF1A1B21),
+  surfaceContainerHighest: const Color(0xFFE3E2E9),
+  
+  outline: const Color(0xFF757680),
+  outlineVariant: const Color(0xFFC5C6D0),
 );
 
 final darkColorScheme = ColorScheme.fromSeed(
-  seedColor: const Color(0xFFD0BCFF),
+  seedColor: _primarySeedColor,
   brightness: Brightness.dark,
-  primary: const Color(0xFFD0BCFF),
-  onPrimary: const Color(0xFF381E72),
-  primaryContainer: const Color(0xFF4F378B),
-  onPrimaryContainer: const Color(0xFFEADDFF),
-  secondary: const Color(0xFFCCC2DC),
-  onSecondary: const Color(0xFF332D41),
-  secondaryContainer: const Color(0xFF4A4458),
-  onSecondaryContainer: const Color(0xFFE8DEF8),
-  tertiary: const Color(0xFFEFB8C8),
-  onTertiary: const Color(0xFF492532),
-  tertiaryContainer: const Color(0xFF633B48),
-  onTertiaryContainer: const Color(0xFFFFD8E4),
-  error: const Color(0xFFFFB4AB),
-  onError: const Color(0xFF690005),
-  errorContainer: const Color(0xFF93000A),
-  onErrorContainer: const Color(0xFFFFDAD6),
-  primaryFixed: const Color(0xFFEADDFF),
-  primaryFixedDim: const Color(0xFFD0BCFF),
-  onPrimaryFixed: const Color(0xFF21005D),
-  onPrimaryFixedVariant: const Color(0xFF4F378B),
-  secondaryFixed: const Color(0xFFE8DEF8),
-  secondaryFixedDim: const Color(0xFFCCC2DC),
-  onSecondaryFixed: const Color(0xFF1D192B),
-  onSecondaryFixedVariant: const Color(0xFF4A4458),
-  tertiaryFixed: const Color(0xFFFFD8E4),
-  tertiaryFixedDim: const Color(0xFFEFB8C8),
-  onTertiaryFixed: const Color(0xFF31111D),
-  onTertiaryFixedVariant: const Color(0xFF633B48),
-  surfaceDim: const Color(0xFF141218),
+).copyWith(
+  // Override with specific Figma design system colors for dark mode
+  primary: FigmaColors.primary80,
+  onPrimary: FigmaColors.primary20,
+  primaryContainer: FigmaColors.primary30,
+  onPrimaryContainer: FigmaColors.primary90,
+  
+  secondary: FigmaColors.secondary80,
+  onSecondary: FigmaColors.secondary20,
+  secondaryContainer: FigmaColors.secondary30,
+  onSecondaryContainer: FigmaColors.secondary90,
+  
+  error: FigmaColors.error80,
+  onError: FigmaColors.error20,
+  errorContainer: FigmaColors.error30,
+  onErrorContainer: FigmaColors.error90,
+  
   surface: const Color(0xFF141218),
-  surfaceBright: const Color(0xFF3B383E),
-  surfaceContainerLowest: const Color(0xFF0F0D13),
-  surfaceContainerLow: const Color(0xFF1D1B20),
-  surfaceContainer: const Color(0xFF211F26),
-  surfaceContainerHigh: const Color(0xFF2B2930),
-  surfaceContainerHighest: const Color(0xFF36343B),
   onSurface: const Color(0xFFE6E1E5),
-  onSurfaceVariant: const Color(0xFFCAC4D0),
+  surfaceContainerHighest: const Color(0xFF36343B),
+  
   outline: const Color(0xFF938F99),
   outlineVariant: const Color(0xFF49454F),
-  shadow: const Color(0xFF000000),
-  scrim: const Color(0xFF000000),
-  inverseSurface: const Color(0xFFE6E1E5),
-  onInverseSurface: const Color(0xFF313033),
-  inversePrimary: const Color(0xFF6750A4),
 );

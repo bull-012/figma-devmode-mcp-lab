@@ -54,7 +54,7 @@ class _ColorSystemDemoState extends State<ColorSystemDemo> with SingleTickerProv
                         isDarkMode = value;
                       });
                     },
-                    activeThumbColor: colorScheme.primary,
+                    thumbColor: WidgetStateProperty.all(colorScheme.primary),
                   ),
                 ],
               ),

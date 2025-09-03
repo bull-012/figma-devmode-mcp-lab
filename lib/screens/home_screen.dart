@@ -40,11 +40,11 @@ class HomeScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerLowest,
       appBar: AppBar(
         title: const Text('Figma Components'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         elevation: 0.5,
         actions: [
           IconButton(
@@ -85,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                 child: Text(
                   component.description,
                   style: TextStyle(
-                    color: Colors.grey[600],
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
                     fontSize: 14,
                   ),
                 ),
@@ -93,7 +93,7 @@ class HomeScreen extends StatelessWidget {
               trailing: Icon(
                 Icons.arrow_forward_ios,
                 size: 16,
-                color: Colors.grey[400],
+                color: Theme.of(context).colorScheme.outline,
               ),
               onTap: component.onTap,
             ),

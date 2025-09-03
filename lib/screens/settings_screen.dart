@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
 import '../components/typography_demo.dart';
 import '../components/color_system_demo.dart';
+import '../theme/theme_provider.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
+
+  @override
+  State<SettingsScreen> createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Theme.of(context).colorScheme.surfaceContainerLowest,
       appBar: AppBar(
         title: const Text('Settings'),
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
+        backgroundColor: Theme.of(context).colorScheme.surface,
+        foregroundColor: Theme.of(context).colorScheme.onSurface,
         elevation: 0.5,
       ),
       body: ListView(
@@ -63,17 +70,7 @@ class SettingsScreen extends StatelessWidget {
           _buildSection(
             title: 'App Settings',
             items: [
-              _SettingItem(
-                icon: Icons.dark_mode,
-                title: 'Theme',
-                subtitle: 'Light / Dark mode',
-                trailing: Switch(
-                  value: false,
-                  onChanged: (value) {
-                    // TODO: Implement theme switching
-                  },
-                ),
-              ),
+              _buildThemeSettingItem(context),
               _SettingItem(
                 icon: Icons.language,
                 title: 'Language',
@@ -114,6 +111,65 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
+  _SettingItem _buildThemeSettingItem(BuildContext context) {
+    final themeProvider = context.themeProvider;
+    
+    String getThemeModeText(ThemeMode mode) {
+      switch (mode) {
+        case ThemeMode.system:
+          return 'System';
+        case ThemeMode.light:
+          return 'Light';
+        case ThemeMode.dark:
+          return 'Dark';
+      }
+    }
+    
+    return _SettingItem(
+      icon: Icons.dark_mode,
+      title: 'Theme',
+      subtitle: getThemeModeText(themeProvider.themeMode),
+      trailing: PopupMenuButton<ThemeMode>(
+        initialValue: themeProvider.themeMode,
+        onSelected: (ThemeMode mode) {
+          themeProvider.setThemeMode(mode);
+          setState(() {});
+        },
+        itemBuilder: (BuildContext context) => <PopupMenuEntry<ThemeMode>>[
+          const PopupMenuItem<ThemeMode>(
+            value: ThemeMode.system,
+            child: Text('System'),
+          ),
+          const PopupMenuItem<ThemeMode>(
+            value: ThemeMode.light,
+            child: Text('Light'),
+          ),
+          const PopupMenuItem<ThemeMode>(
+            value: ThemeMode.dark,
+            child: Text('Dark'),
+          ),
+        ],
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              getThemeModeText(themeProvider.themeMode),
+              style: TextStyle(
+                fontSize: 14,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+            const SizedBox(width: 4),
+            Icon(
+              Icons.arrow_drop_down,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildSection({
     required String title,
     required List<_SettingItem> items,
@@ -128,19 +184,19 @@ class SettingsScreen extends StatelessWidget {
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w600,
-              color: Colors.grey[700],
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
             ),
           ),
         ),
         Container(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.surface,
           child: Column(
             children: items.map((item) {
               return ListTile(
                 leading: item.icon != null
                     ? Icon(
                         item.icon,
-                        color: Colors.grey[700],
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
                         size: 24,
                       )
                     : null,
@@ -156,7 +212,7 @@ class SettingsScreen extends StatelessWidget {
                         item.subtitle!,
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.grey[600],
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
                         ),
                       )
                     : null,
@@ -164,7 +220,7 @@ class SettingsScreen extends StatelessWidget {
                     (item.onTap != null
                         ? Icon(
                             Icons.chevron_right,
-                            color: Colors.grey[400],
+                            color: Theme.of(context).colorScheme.outline,
                           )
                         : null),
                 onTap: item.onTap,

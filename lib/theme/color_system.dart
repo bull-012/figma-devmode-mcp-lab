@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 // Figma Design System - Primary Blue from Tonal Palettes
 const Color _primarySeedColor = Color(0xFF3F6FEC); // Primary 50 from Figma
 
-// Secondary color from Figma
-const Color _secondarySeedColor = Color(0xFF577E7D); // Secondary 50 from Figma
-
 // Custom color extensions from Figma design system
 class FigmaColors {
   // Primary palette from Figma

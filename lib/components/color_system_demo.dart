@@ -222,7 +222,7 @@ class _ColorSystemDemoState extends State<ColorSystemDemo> with SingleTickerProv
             ),
             const SizedBox(height: 4),
             Text(
-              '#${item.color.red.toRadixString(16).padLeft(2, '0')}${item.color.green.toRadixString(16).padLeft(2, '0')}${item.color.blue.toRadixString(16).padLeft(2, '0')}'.toUpperCase(),
+              '#${((item.color.r * 255.0).round() & 0xff).toRadixString(16).padLeft(2, '0')}${((item.color.g * 255.0).round() & 0xff).toRadixString(16).padLeft(2, '0')}${((item.color.b * 255.0).round() & 0xff).toRadixString(16).padLeft(2, '0')}'.toUpperCase(),
               style: TextStyle(
                 fontSize: 8,
                 color: _getContrastColor(item.color).withValues(alpha: 0.7),

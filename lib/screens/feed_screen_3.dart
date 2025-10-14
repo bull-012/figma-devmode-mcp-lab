@@ -7,7 +7,7 @@ import '../theme/color_system.dart';
 /// @figma-file: https://www.figma.com/design/aHUiDyN6X6uR4cPBNHJXDu/bull
 /// @figma-component: Main
 class FeedScreen3 extends StatelessWidget {
-  const FeedScreen3({Key? key}) : super(key: key);
+  const FeedScreen3({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class FeedScreen3 extends StatelessWidget {
 }
 
 class _Header extends StatelessWidget {
-  const _Header({Key? key}) : super(key: key);
+  const _Header();
 
   @override
   Widget build(BuildContext context) {
@@ -101,14 +101,13 @@ class _PostCard extends StatelessWidget {
   final int shareCount;
 
   const _PostCard({
-    Key? key,
     required this.userName,
     required this.timeAgo,
     required this.content,
     required this.likeCount,
     required this.commentCount,
     required this.shareCount,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +120,7 @@ class _PostCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
         boxShadow: [
           BoxShadow(
-            color: FigmaColors.neutral90.withOpacity(0.5),
+            color: FigmaColors.neutral90.withValues(alpha: 0.5),
             offset: const Offset(0, 4),
             blurRadius: 20,
           ),
@@ -192,7 +191,7 @@ class _PostCard extends StatelessWidget {
 }
 
 class _Tag extends StatelessWidget {
-  const _Tag({Key? key}) : super(key: key);
+  const _Tag();
 
   @override
   Widget build(BuildContext context) {
@@ -229,11 +228,10 @@ class _ActionButton extends StatelessWidget {
   final Color color;
 
   const _ActionButton({
-    Key? key,
     required this.icon,
     required this.count,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -255,7 +253,7 @@ class _ActionButton extends StatelessWidget {
 }
 
 class _BottomNavigation extends StatelessWidget {
-  const _BottomNavigation({Key? key}) : super(key: key);
+  const _BottomNavigation();
 
   @override
   Widget build(BuildContext context) {
@@ -268,7 +266,7 @@ class _BottomNavigation extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFFC3C3C3).withOpacity(0.25),
+            color: const Color(0xFFC3C3C3).withValues(alpha: 0.25),
             offset: const Offset(0, 4),
             blurRadius: 20,
           ),
@@ -304,11 +302,10 @@ class _NavItem extends StatelessWidget {
   final Color color;
 
   const _NavItem({
-    Key? key,
     required this.icon,
     required this.isSelected,
     required this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

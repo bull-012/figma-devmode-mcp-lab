@@ -68,7 +68,7 @@ class FeedScreen2 extends StatelessWidget {
 }
 
 class _FilterHeader extends StatelessWidget {
-  const _FilterHeader({super.key});
+  const _FilterHeader();
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +103,6 @@ class _PostCard extends StatelessWidget {
   final int shares;
   
   const _PostCard({
-    super.key,
     required this.userName,
     required this.timeAgo,
     required this.likes,
@@ -189,7 +188,7 @@ class _PostCard extends StatelessWidget {
 }
 
 class _FeaturedTag extends StatelessWidget {
-  const _FeaturedTag({super.key});
+  const _FeaturedTag();
 
   @override
   Widget build(BuildContext context) {
@@ -226,7 +225,6 @@ class _ActionButton extends StatelessWidget {
   final Color color;
   
   const _ActionButton({
-    super.key,
     required this.icon,
     required this.count,
     required this.color,
@@ -252,7 +250,7 @@ class _ActionButton extends StatelessWidget {
 }
 
 class _NavigationBar extends StatelessWidget {
-  const _NavigationBar({super.key});
+  const _NavigationBar();
 
   @override
   Widget build(BuildContext context) {

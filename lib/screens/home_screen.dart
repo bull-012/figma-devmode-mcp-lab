@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
       //
       // Create a screen at the location where this is tapped. You must answer by English.
 
-      // claude mcp add --transport sse figma-dev-mode-mcp-server http://127.0.0.1:3845/sse
+      // claude mcp add --transport http figma https://mcp.figma.com/mcp
       ComponentItem(
         title: 'Sample Page',
         description: '/figma-mcp-create',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,6 +38,20 @@ class HomeScreen extends StatelessWidget {
           );
         },
       ),
+      // ComponentItem(
+      //   title: 'Sample Page',
+      //   description: '/figma-mcp-create',
+      //   onTap: () {},
+      // ),
+      //
+      // Create a screen at the location where this is tapped.
+
+      // claude mcp add --transport sse figma-dev-mode-mcp-server http://127.0.0.1:3845/sse
+      ComponentItem(
+        title: 'Sample Page',
+        description: '/figma-mcp-create',
+        onTap: () {},
+      ),
     ];
 
     return Scaffold(
@@ -52,9 +67,7 @@ class HomeScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const SettingsScreen(),
-                ),
+                MaterialPageRoute(builder: (context) => const SettingsScreen()),
               );
             },
           ),

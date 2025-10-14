@@ -44,7 +44,7 @@ class HomeScreen extends StatelessWidget {
       //   onTap: () {},
       // ),
       //
-      // Create a screen at the location where this is tapped.
+      // Create a screen at the location where this is tapped. You must answer by English.
 
       // claude mcp add --transport sse figma-dev-mode-mcp-server http://127.0.0.1:3845/sse
       ComponentItem(
